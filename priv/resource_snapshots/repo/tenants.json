@@ -1,0 +1,62 @@
+{
+  "attributes": [
+    {
+      "allow_nil?": true,
+      "default": "fragment(\"now()\")",
+      "name": "created_at",
+      "primary_key?": false,
+      "references": null,
+      "type": "utc_datetime"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "name": "id",
+      "primary_key?": true,
+      "references": null,
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "name",
+      "primary_key?": false,
+      "references": null,
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "name": "subdomain",
+      "primary_key?": false,
+      "references": null,
+      "type": "text"
+    },
+    {
+      "allow_nil?": true,
+      "default": "fragment(\"now()\")",
+      "name": "updated_at",
+      "primary_key?": false,
+      "references": null,
+      "type": "utc_datetime"
+    }
+  ],
+  "base_filter": null,
+  "hash": "763D3BCB8BF7EE33EFD38F789B5996007F5A042FD32B78B64B7149CBEDF3D630",
+  "identities": [
+    {
+      "base_filter": null,
+      "keys": [
+        "subdomain"
+      ],
+      "name": "unique_subdomain"
+    }
+  ],
+  "multitenancy": {
+    "attribute": null,
+    "global": null,
+    "strategy": null
+  },
+  "repo": "Elixir.Eatbeep.Repo",
+  "table": "tenants"
+}
