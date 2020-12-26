@@ -37,7 +37,7 @@
           <ErrorTag class="field-error" />
         </Field>
        
-        <Submit class="block w-full btn bg-gray-900 text-white btn-lg">Register</Submit>
+        <Submit class="block w-full btn btn-primary text-white btn-lg">Register</Submit>
      
       </div>
     </Form>

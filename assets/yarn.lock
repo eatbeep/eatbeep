@@ -3237,6 +3237,11 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
+kutty@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/kutty/-/kutty-0.4.1.tgz#6d864ed36d9d2e09836d1ee9c0ee83a4aee6deba"
+  integrity sha512-tLXkzkrxI35GfpmM0Ermw0zPRILh1BtwrxJqASZiUIvSkI1m6NYvoONBgtgxvI1fTSnPnJ4u4YEt+KQJKCmmqA==
+
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"
