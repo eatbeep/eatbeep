@@ -9,6 +9,7 @@ defmodule EatbeepWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug Eatbeep.Plug.UserLookup
+    plug Eatbeep.Plug.TenantLookup
   end
 
   pipeline :api do

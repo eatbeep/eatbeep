@@ -57,11 +57,13 @@ config :eatbeep, EatbeepWeb.Endpoint,
 # Watch static and templates for browser reloading.
 config :eatbeep, EatbeepWeb.Endpoint,
   live_reload: [
+    iframe_attrs: [class: "hidden"],
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/eatbeep_web/(live|views)/.*(ex)$",
-      ~r"lib/eatbeep_web/templates/.*(eex)$"
+      ~r"lib/eatbeep_web/templates/.*(eex)$",
+      ~r"lib/eatbeep_web/live/.*(sface)$"
     ]
   ]
 

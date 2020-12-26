@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,15 +15,15 @@
   transition: opacity 1s ease-out;
 }
 
-.phx-disconnected{
+.phx-disconnected {
   cursor: wait;
 }
-.phx-disconnected *{
+.phx-disconnected * {
   pointer-events: none;
 }
 
 .phx-modal {
-  opacity: 1!important;
+  opacity: 1 !important;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -32,8 +31,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .phx-modal-content {
@@ -57,7 +56,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-
 
 /* Alerts and form errors */
 .alert {
@@ -91,4 +89,35 @@
   color: #a94442;
   display: block;
   margin: -1rem 0 2rem;
+}
+
+/* https://github.com/cruip/tailwind-landing-page-template/blob/main/src/css/additional-styles/utility-patterns.scss */
+
+.btn,
+.btn-sm {
+  @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
+}
+
+.btn {
+  @apply px-8 py-3 shadow-lg;
+}
+
+.btn-sm {
+  @apply px-4 py-2 shadow;
+}
+
+.input {
+  @apply focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-blue-300 rounded border-gray-300 w-full block;
+}
+
+.checkbox {
+  @apply focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-blue-300 rounded border-gray-300;
+}
+
+.label {
+  @apply text-sm;
+}
+
+.field-error {
+  @apply block text-sm text-red-500 block;
 }
