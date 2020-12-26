@@ -12,7 +12,7 @@ defmodule EatbeepWeb.SignupLive do
 
   def handle_event("signup", %{"tenant" => params}, socket) do
     cset = Tenant.signup_changeset(%Tenant{}, params) |> Map.put(:action, :insert)
-    IO.inspect(cset, label: "cset")
+
     {:noreply, socket |> assign(:changeset, cset)}
   end
 
