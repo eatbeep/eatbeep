@@ -31,13 +31,3 @@ defmodule Eatbeep.Signup do
   # |> Multi.run(:user, fn _repo, %{tenant: tenant} -> create_user(user, tenant) end)
   # |> Eatbeep.Repo.transaction()
 end
-
-# the returned error is quite ugly though - I won't be able to match it to the field?
-
-# Eatbeep.Api.get!(Eatbeep.Tenant, "exeecrqy") |> Ash.Changeset.new() |> Ash.Changeset.replace_relationship(:users, [{"yzdgv8h3", %{role: "owner"}}]) |> Eatbeep.Api.update!()
-
-# Ash.DataLayer.transact(Eatbeep.Tenant, fn ->
-#   t = Eatbeep.Api.get!(Eatbeep.Tenant, "exeecrqy")
-#   Eatbeep.Api.get!(Eatbeep.Tenant, "exeecrqy")
-#   true
-# end)"

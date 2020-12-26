@@ -2,7 +2,7 @@ defmodule EatbeepWeb.MenuLive do
   use Surface.LiveView
   alias Surface.Constructs.For
 
-  alias Eatbeep.NewMenu
+  # alias Eatbeep.NewMenu
 
   data blocks, :list
 

@@ -4,7 +4,7 @@ defmodule EatbeepWeb.SignupLive do
   alias Surface.Components.Form.{Field, Label, TextInput, EmailInput, Submit, PasswordInput, Checkbox, ErrorTag}
   alias Eatbeep.Tenant
 
-  def mount(session, _params, socket) do
+  def mount(_session, _params, socket) do
     cset = Tenant.signup_changeset(%Tenant{})
 
     {:ok, socket |> assign(:changeset, cset)}
