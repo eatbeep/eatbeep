@@ -47,11 +47,8 @@ defmodule Eatbeep.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:ash, "~> 1.25.2"},
-      {:ash_postgres, "~> 0.26.2"},
       {:nanoid, "~> 2.0"},
       {:bcrypt_elixir, "~> 2.2"},
-      {:ash_policy_authorizer, "~> 0.14.0"},
       {:surface, "~> 0.1.1"}
     ]
   end
