@@ -1,7 +1,17 @@
 FROM elixir:1.11.2 AS build
 
-# install build dependencies
-RUN apk add --no-cache build-base yarn
+RUN apt-get update -y \ 
+    && apt-get -y install apt-transport-https curl lsb-release unzip
+
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
+# Prerequisites for `yarn` - https://yarnpkg.com/lang/en/docs/install/#linux-tab
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+	&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+
+RUN apt-get update -y \
+    && apt-get install -y nodejs yarn 
 
 # prepare build dir
 WORKDIR /app
