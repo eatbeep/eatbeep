@@ -1,8 +1,8 @@
 # File: docker_phx/Dockerfile
-FROM elixir:1.9-alpine as build
+FROM elixir:1.11.2-alpine as build
 
 # install build dependencies
-RUN apk add --update git build-base nodejs npm yarn python
+RUN apk add --update git build-base nodejs npm yarn python3
 
 RUN mkdir /app
 WORKDIR /app
