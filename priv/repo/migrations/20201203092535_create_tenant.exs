@@ -12,7 +12,6 @@ defmodule Eatbeep.Repo.Migrations.CreateTenant do
       add :email, :citext, null: false
       add :menu, :jsonb
 
-
       timestamps()
     end
 
@@ -21,8 +20,5 @@ defmodule Eatbeep.Repo.Migrations.CreateTenant do
     create unique_index(:tenants, [:custom_domain])
 
     # tokens
-
   end
-
-
 end

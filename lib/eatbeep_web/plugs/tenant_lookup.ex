@@ -11,6 +11,7 @@ defmodule Eatbeep.Plug.TenantLookup do
     # |> put_session("tenant_id", "456")
     # |> put_session("role", "user")
     |> put_session(:tenant_id, 1)
+
     # include actor as well
   end
 end

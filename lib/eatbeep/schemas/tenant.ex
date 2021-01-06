@@ -27,9 +27,9 @@ defmodule Eatbeep.Tenant do
     |> validate_length(:password, min: 6)
     |> unique_constraint(:email)
     |> validate_acceptance(:accept_terms, message: "please accept rules")
+
     # generate the subdomain
     # hash the password
     # set
   end
-
 end

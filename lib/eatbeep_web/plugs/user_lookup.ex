@@ -11,6 +11,7 @@ defmodule Eatbeep.Plug.UserLookup do
     # |> put_session("tenant_id", "456")
     # |> put_session("role", "user")
     |> put_session("logged_in?", false)
+
     # include actor as well
   end
 end

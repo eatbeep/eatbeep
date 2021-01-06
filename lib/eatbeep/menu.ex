@@ -21,7 +21,6 @@ defmodule Eatbeep.Menu do
     Repo.get(Tenant, tenant_id)
     |> Ecto.Changeset.change(%{menu: menu})
     |> Repo.update()
-
   end
 
   def subscribe(tenant_id) do
