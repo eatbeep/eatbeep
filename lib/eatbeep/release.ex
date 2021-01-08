@@ -19,6 +19,7 @@ defmodule Eatbeep.Release do
   end
 
   defp load_app do
+    Application.ensure_all_started(:ssl)
     Application.load(@app)
   end
 end
