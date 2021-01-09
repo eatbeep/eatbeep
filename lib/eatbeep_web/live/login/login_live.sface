@@ -1,0 +1,39 @@
+<section class="min-h-screen bg-gray-100">
+  <div class="container px-4 py-20 mx-auto">
+    <a href="/"
+      title=""
+      class="flex items-center justify-start sm:justify-center">
+      <h1 class="">{{ @tenant_name }}</h1>
+    </a>
+    <div
+      class="w-full px-0 pt-5 pb-6 mx-auto mt-4 mb-0 space-y-4 bg-transparent border-0 border-gray-200 rounded-lg md:bg-white md:border sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 md:px-6 sm:mt-8 sm:mb-5">
+      <h1 class="mb-5 text-xl font-light text-left text-gray-800 sm:text-center">
+        Log in to your account
+      </h1>
+      <Form submit="login" for={{ @changeset }}>
+        <div class="space-y-4">
+         <ErrorTag field="general" class="field-error" />
+        <Field name="email" class="space-y-1">
+          <Label>Email Address</Label>
+          <EmailInput class="input" opts={{ inputmode: "email", placeholder: "eg. ben@example.com"}} />
+          <ErrorTag class="field-error" />
+        </Field>
+
+        <Field name="password" class="space-y-1">
+          <Label>Password</Label>
+          <PasswordInput class="input" opts={{ placeholder: "••••••••" }} />
+          <ErrorTag class="field-error" />
+        </Field>
+
+        <div class="flex items-center justify-center">
+          <Submit type="submit" class="btn btn-primary btn-lg">Login</Submit>
+        </div>
+        </div>
+      </Form>
+    </div>
+    <p class="mb-4 space-y-2 text-sm text-left text-gray-600 sm:text-center sm:space-y-0">
+      <a href="#" class="w-full btn btn-sm btn-link sm:w-auto">Forgot password</a>
+      <a href="#" class="w-full btn btn-sm btn-link sm:w-auto">Create an account</a>
+    </p>
+  </div>
+</section>

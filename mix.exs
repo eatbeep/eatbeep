@@ -49,7 +49,8 @@ defmodule Eatbeep.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:nanoid, "~> 2.0"},
       {:bcrypt_elixir, "~> 2.2"},
-      {:surface, "~> 0.1.1"}
+      {:surface, "~> 0.1.1"},
+      {:slugify, "~> 1.3"}
     ]
   end
 

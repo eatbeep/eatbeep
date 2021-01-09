@@ -22,6 +22,7 @@ defmodule EatbeepWeb.Router do
     live "/", PageLive, :index
     live "/signup", SignupLive, :index
     live "/menu", MenuLive, :index
+    live "/login", LoginLive, :index
   end
 
   # Other scopes may use custom stacks.

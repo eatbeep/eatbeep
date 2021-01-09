@@ -93,7 +93,7 @@
 
 /* https://github.com/cruip/tailwind-landing-page-template/blob/main/src/css/additional-styles/utility-patterns.scss */
 
-.btn,
+/* .btn,
 .btn-sm {
   @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
 }
@@ -104,7 +104,7 @@
 
 .btn-sm {
   @apply px-4 py-2 shadow;
-}
+} */
 
 .input {
   @apply focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-blue-300 rounded border-gray-300 w-full block;
