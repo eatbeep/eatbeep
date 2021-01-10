@@ -5,11 +5,12 @@ defmodule EatbeepWeb.Menu.HeadingForm do
   alias Eatbeep.Blocks
 
   data changeset, :any
+  data bid, :string
   prop block, :any
 
   def update(assigns, socket) do
     cset = Blocks.heading_changeset(assigns.block)
-    {:ok, socket |> assign(changeset: cset)}
+    {:ok, socket |> assign(:changeset, cset) |> assign(:bid, assigns.block.bid)}
   end
 
   def render(assigns) do
@@ -23,7 +24,10 @@ defmodule EatbeepWeb.Menu.HeadingForm do
           <TextInput class="input" opts={{ placeholder: "eg. Acme Pizza"}} />
           <ErrorTag class="field-error" />
         </Field>
-        <Submit class="btn btn-primary">Update</Submit>
+        <div class="flex justify-between">
+          <button type="button" data-confirm="Are you sure?" phx-click="delete_block" phx-value-id={{ @bid }} class="btn btn-light-danger">Delete</button>
+          <Submit class="btn btn-primary">Update</Submit>
+        </div>
       </div>
       </Form>
     """

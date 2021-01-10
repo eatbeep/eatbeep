@@ -1,3 +1,10 @@
+<p class="alert alert-info" role="alert"
+    phx-click="lv:clear-flash"
+    phx-value-key="info">{{ live_flash(@flash, :info) }}</p>
+
+  <p class="alert alert-danger" role="alert"
+    phx-click="lv:clear-flash"
+    phx-value-key="error">{{ live_flash(@flash, :error) }}</p>
 <div>
   <div phx-hook="sortable" id="menu">
     <For each={{ block <- @blocks }}>
@@ -6,6 +13,6 @@
   </div>
   <div class="fixed bottom-4 left-4 bg-white p-4 rounded shadow">
     <a class="btn btn-secondary" :on-click="save">See menu</a>
-      <button class="btn btn-primary" :on-click="save">Save changes</button>
+    <button class="btn btn-primary" :on-click="save">Save changes</button>
   </div>
 </div>

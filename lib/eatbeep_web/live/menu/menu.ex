@@ -19,9 +19,7 @@ defmodule EatbeepWeb.MenuLive do
   def handle_event("save", _params, %{assigns: assigns} = socket) do
     %{tenant_id: tenant_id, blocks: blocks} = assigns
     Eatbeep.Menu.save(tenant_id, blocks)
-    {:noreply, socket}
-    # use the task.async thing to persist and rebroadcast, in async way
-    # use both presence channel and database? database is only if saved?
+    {:noreply, socket |> put_flash(:info, "Changes saved")}
   end
 
   def handle_event("move_block", params, %{assigns: assigns} = socket) do
@@ -50,6 +48,13 @@ defmodule EatbeepWeb.MenuLive do
     {:noreply, socket |> assign(:blocks, updated_blocks)}
   end
 
+  def handle_event("delete_block", %{"id" => id}, socket) do
+    %{assigns: %{blocks: blocks}} = socket
+    updated_blocks = Enum.reject(blocks, fn b -> b.bid == id end)
+    Dialog.hide(id)
+    {:noreply, socket |> assign(:blocks, updated_blocks)}
+  end
+
   def handle_info({:update_block, payload}, socket) do
     %{bid: bid} = payload
     %{assigns: %{blocks: blocks}} = socket
@@ -60,12 +65,5 @@ defmodule EatbeepWeb.MenuLive do
     Dialog.hide(payload.bid)
     {:noreply, socket |> assign(:blocks, updated_blocks)}
   end
-
-
-
-  # cancel editing?
-
-  # add block - generate UUID, some sort of template?
-  # delete block
 
 end
