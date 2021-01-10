@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      outline: {
+        blue: ['2px solid #3b82f6', '-1px']
+      },
       colors: {
         primary: {
           light: "#6B7280", // For lighter primary color
@@ -14,7 +17,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ["group-hover", "focus-within"]
+      display: ["group-hover", "focus-within"],
+      outline: ["group-hover", "focus-within", "hover"]
     }
   },
   plugins: [

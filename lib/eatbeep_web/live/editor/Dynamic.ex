@@ -22,7 +22,7 @@ defmodule EatbeepWeb.Menu.Dynamic do
       |> Map.merge(%{__surface__: %{groups: %{__default__: %{binding: false, size: 0}}}})
 
     ~H"""
-    <div class="group focus-within:border-blue-500 border-transparent hover:border-blue-500 border-2 relative">
+    <div class="group focus-within:outline-blue hover:outline-blue relative">
       {{ live_component(@socket, c, props) }}
       <div class="hidden group-hover:flex space-x-2 top-2 right-2 absolute p-2 shadow bg-white rounded">
         <button type="button" class="btn btn-sm btn-light move-button">Move</button>
