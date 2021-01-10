@@ -2,6 +2,7 @@ defmodule EatbeepWeb.MenuLive do
   use Surface.LiveView
   alias Surface.Constructs.{For}
   alias EatbeepWeb.Menu.{Dynamic, Dialog}
+  alias Eatbeep.Blocks
 
   data blocks, :list
   data tenant_id, :integer
@@ -38,8 +39,18 @@ defmodule EatbeepWeb.MenuLive do
     {:noreply, socket}
   end
 
+  def handle_event("add_block", %{"type" => type, "after" => aft}, socket) do
+    %{assigns: %{blocks: blocks}} = socket
+    position = Enum.find_index(blocks, fn b -> b.bid == aft end) + 1
+
+    new_block = Blocks.new_block(type)
+
+    updated_blocks = List.insert_at(blocks, position, new_block)
+
+    {:noreply, socket |> assign(:blocks, updated_blocks)}
+  end
+
   def handle_info({:update_block, payload}, socket) do
-    # IO.inspect(params, label: "HERE")
     %{bid: bid} = payload
     %{assigns: %{blocks: blocks}} = socket
     position = Enum.find_index(blocks, fn b -> b.bid == bid end)
@@ -49,6 +60,8 @@ defmodule EatbeepWeb.MenuLive do
     Dialog.hide(payload.bid)
     {:noreply, socket |> assign(:blocks, updated_blocks)}
   end
+
+
 
   # cancel editing?
 
