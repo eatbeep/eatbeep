@@ -1,7 +1,7 @@
 defmodule EatbeepWeb.Menu.ProductForm do
   use Surface.LiveComponent
   alias Surface.Components.Form
-  alias Surface.Components.Form.{Field, Label, TextInput, Submit, ErrorTag, HiddenInput}
+  alias Surface.Components.Form.{Field, Label, TextInput, Submit, ErrorTag, HiddenInput, TextArea}
   alias Eatbeep.Blocks
 
   data changeset, :any
@@ -21,13 +21,13 @@ defmodule EatbeepWeb.Menu.ProductForm do
       <div class="space-y-4">
         <Field name="name" class="space-y-1">
           <Label>Name</Label>
-          <TextInput class="input" opts={{ placeholder: "eg. Acme Pizza"}} />
+          <TextInput class="input" opts={{ placeholder: "eg. Pepperoni Pizza"}} />
           <ErrorTag class="field-error" />
         </Field>
 
         <Field name="description" class="space-y-1">
           <Label>Description</Label>
-          <TextInput class="input" opts={{ placeholder: ""}} />
+          <TextArea class="input" opts={{ placeholder: ""}} rows="4" />
           <ErrorTag class="field-error" />
         </Field>
 
