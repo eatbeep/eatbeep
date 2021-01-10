@@ -25,8 +25,8 @@ defmodule EatbeepWeb.MenuLive do
   def render(assigns) do
 
     ~H"""
-    <div :for={{ block <- @blocks }}>
-      <DynamicSimple block={{ block}} />
+    <div class="pb-16">
+      <DynamicSimple :for={{ block <- @blocks }}  block={{ block}} />
     </div>
     """
   end

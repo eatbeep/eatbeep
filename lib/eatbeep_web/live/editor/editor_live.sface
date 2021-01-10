@@ -6,7 +6,7 @@
     phx-click="lv:clear-flash"
     phx-value-key="error">{{ live_flash(@flash, :error) }}</p>
 <div>
-  <div phx-hook="sortable" id="menu">
+  <div phx-hook="sortable" id="menu" class="pb-16">
     <For each={{ block <- @blocks }}>
       <Dynamic block={{ block }} />
     </For>
