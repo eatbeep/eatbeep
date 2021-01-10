@@ -16,14 +16,22 @@ defmodule EatbeepWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", EatbeepWeb do
+  scope "/", EatbeepWeb, host: "www." do
     pipe_through :browser
 
     live "/", PageLive, :index
     live "/signup", SignupLive, :index
-    live "/menu", MenuLive, :index
+  end
+
+  scope "/", EatbeepWeb do
+    pipe_through :browser
+
+    live "/", MenuLive, :index
+    live "/menu", EditorLive, :index
     live "/login", LoginLive, :index
   end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", EatbeepWeb do

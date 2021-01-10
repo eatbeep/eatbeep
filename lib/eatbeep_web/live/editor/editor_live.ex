@@ -1,4 +1,4 @@
-defmodule EatbeepWeb.MenuLive do
+defmodule EatbeepWeb.EditorLive do
   use Surface.LiveView
   alias Surface.Constructs.{For}
   alias EatbeepWeb.Menu.{Dynamic, Dialog}

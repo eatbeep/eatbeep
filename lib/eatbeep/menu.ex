@@ -26,6 +26,14 @@ defmodule Eatbeep.Menu do
     res |> Enum.map(&key_to_atom/1)
   end
 
+  def get_blocks(tenant_id) do
+    get(tenant_id) |> Enum.reject(fn block -> block.__type == "hero" end)
+  end
+
+  def get_hero(tenant_id) do
+    get(tenant_id) |> Enum.filter(fn block -> block.__type == "hero" end)
+  end
+
   def save(tenant_id, menu) do
     Repo.get(Tenant, tenant_id)
     |> Ecto.Changeset.change(%{menu: menu})
