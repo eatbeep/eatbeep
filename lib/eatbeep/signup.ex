@@ -6,7 +6,7 @@ defmodule Eatbeep.Signup do
 
   def signup(changeset) do
 
-    with_blocks = changeset |> Changeset.put_change(:blocks, Eatbeep.Blocks.generate_starting_data())
+    with_blocks = changeset |> Changeset.put_change(:menu, Eatbeep.Blocks.generate_starting_data())
 
     Multi.new()
     |> Multi.insert(:tenant, with_blocks)

@@ -3,7 +3,7 @@
     <p class="mb-2 text-xs font-semibold tracking-wide text-gray-400 uppercase">For Café and Restaurant Owners</p>
     <h1 class="mb-3 text-3xl font-bold leading-tight text-gray-900 md:text-4xl">Put your menu online</h1>
     <p class="mb-5 text-base text-gray-500 md:text-lg">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at vulputate nibh. Aenean ipsum dolor, faucibus nec metus nec, eleifend faucibus augue.
+      It's been a tough year for the hospitality trade. To do our bit, we've created a <strong>free</strong> drag-and-drop menu creator, which let's you easily put your menu online.
     </p>
     <LiveRedirect to="/signup" class="w-full mb-2 btn btn-primary btn-lg sm:w-auto sm:mb-0">Signup</LiveRedirect>
     <a href="https://demo.eatbeep.com" class="w-full mb-2 btn btn-light btn-lg sm:w-auto sm:mb-0">Demo</a>

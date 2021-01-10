@@ -12,6 +12,7 @@ defmodule EatbeepWeb.EditorLive do
       socket
       |> assign_new(:blocks, fn -> Eatbeep.Menu.get(tenant_id) end)
       |> assign(:tenant_id, tenant_id)
+      |> assign_new(:tenant_url, fn -> Eatbeep.Tenant.get_url(tenant_id) end)
     }
   end
 

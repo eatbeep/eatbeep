@@ -14,12 +14,7 @@ defmodule Eatbeep.Tenant do
     field :password, :string, virtual: true
     field :accept_terms, :boolean, virtual: true
 
-    # meta - browser details
-
     timestamps()
-
-    # status - demo etc.
-    # user status - email validated
   end
 
   def login_changeset(tenant, attrs \\ %{}) do
@@ -75,5 +70,10 @@ defmodule Eatbeep.Tenant do
 
   def get_by_subdomain(subdomain) do
     Repo.get_by(Tenant, subdomain: subdomain)
+  end
+
+  def get_url(tenant_id) do
+    tenant = Repo.get!(Tenant, tenant_id)
+    "https://#{tenant.subdomain}.eatbeep.com"
   end
 end
