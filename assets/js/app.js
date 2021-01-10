@@ -9,7 +9,6 @@ let hooks = {}
 
 hooks.sortable = {
   mounted() {
-    console.log('mounted ')
     Sortable.create(this.el, {
       handle: '.move-button',
       onEnd: (e) => {

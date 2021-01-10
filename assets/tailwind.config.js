@@ -12,7 +12,11 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      display: ["group-hover", "focus-within"]
+    }
+  },
   plugins: [
     require('@tailwindcss/forms'),
     require("kutty")
