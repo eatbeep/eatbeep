@@ -6,6 +6,6 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at vulputate nibh. Aenean ipsum dolor, faucibus nec metus nec, eleifend faucibus augue.
     </p>
     <LiveRedirect to="/signup" class="w-full mb-2 btn btn-primary btn-lg sm:w-auto sm:mb-0">Signup</LiveRedirect>
-    <!-- <a href="#" class="w-full mb-2 btn btn-light btn-lg sm:w-auto sm:mb-0">Signup</a> -->
+    <a href="https://demo.eatbeep.com" class="w-full mb-2 btn btn-light btn-lg sm:w-auto sm:mb-0">Demo</a>
   </div>
 </section>

@@ -6,23 +6,28 @@ defmodule Eatbeep.Login do
 
     case Bcrypt.check_pass(tenant, password, hash_key: :hashed_password) do
       {:ok, tenant} ->
-        {:ok, generate_login_token(tenant)}
+        generate_login_token(tenant)
       {:error, _} -> {:error, "Invalid username or password"}
     end
 
   end
 
-  defp generate_login_token(tenant) do
-    Phoenix.Token.sign(EatbeepWeb.Endpoint, "login", tenant.id, max_age: 30)
+  def generate_login_token(tenant) do
+    {:ok, Phoenix.Token.sign(EatbeepWeb.Endpoint, "login", tenant.id, max_age: 30)}
   end
 
-  def exchange_login_token(token) do
-    case Phoenix.Token.verify(EatbeepWeb.Endpoint, "login", token, max_age: 30) do
-      {:ok, tenant_id} ->
-        Phoenix.Token.sign(EatbeepWeb.Endpoint, "session", tenant_id, max_age: 86400)
+  def exchange_login_token(token, current_tenant_id) do
+    with {:ok, tenant_id} <- Phoenix.Token.verify(EatbeepWeb.Endpoint, "login", token, max_age: 30),
+      :ok <- tenant_match?(tenant_id, current_tenant_id)
+    do
+      {:ok, Phoenix.Token.sign(EatbeepWeb.Endpoint, "session", tenant_id, max_age: 86400)}
+    else
       {:error, _} -> {:error, "Invalid token"}
     end
   end
+
+  def tenant_match?(val, val), do: :ok
+  def tenant_match?(_, _), do: {:error, ""}
 
   def verify_session_token(token) do
     Phoenix.Token.verify(EatbeepWeb.Endpoint, "session", token, max_age: 86400)

@@ -29,13 +29,12 @@ defmodule EatbeepWeb.LoginLive do
     if cset.valid? do
       case Login.login(tenant_id, cset) do
         {:ok, token} ->
-          # redirect with token
-          {:noreply, socket}
+          {:noreply, socket |> push_redirect(to: "/menu?ott=#{token}")}
 
         {:error, error} ->
           cset = Ecto.Changeset.add_error(cset, :general, error)
 
-          {:noreply,socket |> assign(:changeset, cset)}
+          {:noreply, socket |> assign(:changeset, cset)}
       end
     else
       {:noreply, socket |> assign(:changeset, cset)}

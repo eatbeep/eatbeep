@@ -8,8 +8,15 @@ defmodule EatbeepWeb.Router do
     plug :put_root_layout, {EatbeepWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug Eatbeep.Plug.UserLookup
+  end
+
+  pipeline :tenant do
     plug Eatbeep.Plug.TenantLookup
+    plug Eatbeep.Plug.Login
+  end
+
+  pipeline :logged_in do
+    plug Eatbeep.Plug.EnsureLoggedIn
   end
 
   pipeline :api do
@@ -24,11 +31,13 @@ defmodule EatbeepWeb.Router do
   end
 
   scope "/", EatbeepWeb do
-    pipe_through :browser
+    pipe_through [:browser, :tenant]
 
     live "/", MenuLive, :index
-    live "/menu", EditorLive, :index
     live "/login", LoginLive, :index
+
+    pipe_through [:logged_in]
+    live "/menu", EditorLive, :index
   end
 
 

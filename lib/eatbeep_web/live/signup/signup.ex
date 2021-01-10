@@ -27,16 +27,14 @@ defmodule EatbeepWeb.SignupLive do
 
     if cset.valid? do
       case Signup.signup(cset) do
-        {:ok, %{tenant: tenant}} ->
-          # redirect to URL, somehow login
-          IO.inspect(tenant, label: "insert record")
-          {:noreply, socket}
+        {:ok, %{tenant: tenant, token: token}} ->
+          url = "https://#{tenant.subdomain}.eatbeep.com/menu?ott=#{token}"
+          {:noreply, socket |> redirect(external: url)}
 
         {:error, _, failed_change, _} ->
          {:noreply, socket |> assign(:changeset, failed_change)}
       end
     else
-      IO.inspect(cset, label: "== Changes ERROR")
       {:noreply, socket |> assign(:changeset, cset)}
     end
   end

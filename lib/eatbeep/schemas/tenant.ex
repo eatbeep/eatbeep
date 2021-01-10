@@ -45,10 +45,8 @@ defmodule Eatbeep.Tenant do
 
     case Repo.get_by(Tenant, subdomain: subdomain) do
       nil ->
-        IO.puts("NO SUCH SUBDOMAIN - GOOD TO GO")
         changeset |> put_change(:subdomain, subdomain)
       _ ->
-        IO.puts("ARELADY EXISTS")
         ensure_subdomain(changeset, attempt + 1)
     end
   end
@@ -73,5 +71,9 @@ defmodule Eatbeep.Tenant do
     else
       changeset
     end
+  end
+
+  def get_by_subdomain(subdomain) do
+    Repo.get_by(Tenant, subdomain: subdomain)
   end
 end
