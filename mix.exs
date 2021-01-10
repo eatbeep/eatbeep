@@ -50,7 +50,8 @@ defmodule Eatbeep.MixProject do
       {:nanoid, "~> 2.0"},
       {:bcrypt_elixir, "~> 2.2"},
       {:surface, "~> 0.1.1"},
-      {:slugify, "~> 1.3"}
+      {:slugify, "~> 1.3"},
+      {:eqrcode, "~> 0.1.7"}
     ]
   end
 

@@ -1,14 +1,13 @@
 defmodule EatbeepWeb.EditorLive do
   use Surface.LiveView
   alias Surface.Constructs.{For}
-  alias EatbeepWeb.Menu.{Dynamic, Dialog}
+  alias EatbeepWeb.Menu.{Dynamic, Dialog, QRCode}
   alias Eatbeep.Blocks
 
   data blocks, :list
   data tenant_id, :integer
 
   def mount(_params, %{"tenant_id" => tenant_id}, socket) do
-
     {:ok,
       socket
       |> assign_new(:blocks, fn -> Eatbeep.Menu.get(tenant_id) end)
@@ -53,6 +52,11 @@ defmodule EatbeepWeb.EditorLive do
     updated_blocks = Enum.reject(blocks, fn b -> b.bid == id end)
     Dialog.hide(id)
     {:noreply, socket |> assign(:blocks, updated_blocks)}
+  end
+
+  def handle_event("show_qr_code", _params, socket) do
+    Dialog.show("qr_code")
+    {:noreply, socket}
   end
 
   def handle_info({:update_block, payload}, socket) do

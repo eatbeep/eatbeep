@@ -12,7 +12,11 @@
     </For>
   </div>
   <div class="fixed bottom-4 left-4 bg-white p-4 rounded shadow">
-    <a class="btn btn-secondary" :on-click="save">See menu</a>
+    <a class="btn btn-light" :on-click="save">See menu</a>
+    <button class="btn btn-light" :on-click="show_qr_code">QR Code</button>
     <button class="btn btn-primary" :on-click="save">Save changes</button>
   </div>
+  <Dialog title="QR Code" id="qr_code">
+    <QRCode tenant_id={{ @tenant_id }} />
+  </Dialog>
 </div>
