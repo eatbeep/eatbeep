@@ -21,7 +21,6 @@ RUN mix deps.compile
 
 # build assets
 COPY assets assets
-ENV NODE_ENV=production
 RUN cd assets && npm install && npm run deploy
 RUN mix phx.digest
 
